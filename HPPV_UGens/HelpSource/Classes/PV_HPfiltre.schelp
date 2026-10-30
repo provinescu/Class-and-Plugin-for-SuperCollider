@@ -1,0 +1,34 @@
+TITLE:: PV_HPfiltre
+summary:: Sélection d'une zone de bins spectraux
+categories:: UGens>FFT
+related:: Classes/FFT, Classes/IFFT, Classes/PV_ChainUGen
+
+DESCRIPTION::
+Conserve ou traite une zone de bins définie par un indice de départ et une taille. Cet UGen doit être placé entre FFT et IFFT.
+
+CLASSMETHODS::
+METHOD:: new
+
+ARGUMENT:: chain
+Chaîne PV produite par FFT ou par un autre UGen PV.
+
+ARGUMENT:: index
+Indice de départ de la zone spectrale.
+
+ARGUMENT:: size
+Nombre de bins de la zone spectrale.
+
+RETURNS::
+Une chaîne PV.
+
+EXAMPLES::
+code::
+(
+{
+    var source = WhiteNoise.ar(0.05);
+    var chain = FFT(LocalBuf(2048), source);
+    chain = PV_HPfiltre(chain, 10, 100);
+    IFFT(chain) ! 2
+}.play;
+)
+::

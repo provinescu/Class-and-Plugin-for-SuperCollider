@@ -1,0 +1,5 @@
+TITLE:: HPkohonen
+summary:: Kohonen self-organizing map UGens
+categories:: UGens>Machine Learning
+DESCRIPTION::
+Includes HPkohonen1 for one-dimensional input and HPkohonen3 for three-dimensional input. The output is the normalized winning-node index from -1 to 1.

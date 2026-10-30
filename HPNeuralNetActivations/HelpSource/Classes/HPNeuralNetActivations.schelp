@@ -1,0 +1,5 @@
+TITLE:: HPNeuralNetActivations
+summary:: Réseau multicouche, activation par couche
+categories:: UGens>Machine Learning
+DESCRIPTION::
+Activations: sigmoid, tanh, relu, leakyRelu, linear et softsign. Fournir une activation par couche cachée, plus une pour la sortie.

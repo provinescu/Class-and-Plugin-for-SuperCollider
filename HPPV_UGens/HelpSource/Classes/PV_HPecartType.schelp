@@ -1,0 +1,31 @@
+TITLE:: PV_HPecartType
+summary:: Transformation spectrale fondée sur l'écart type
+categories:: UGens>FFT
+related:: Classes/FFT, Classes/IFFT, Classes/PV_ChainUGen
+
+DESCRIPTION::
+Traite une chaîne FFT avec l'algorithme d'écart type défini par le plugin HPPV_UGens. Cet UGen doit être placé entre FFT et IFFT.
+
+CLASSMETHODS::
+METHOD:: new
+
+ARGUMENT:: chain
+Chaîne PV produite par FFT ou par un autre UGen PV.
+
+ARGUMENT:: multiplier
+Multiplicateur utilisé par le traitement spectral.
+
+RETURNS::
+Une chaîne PV.
+
+EXAMPLES::
+code::
+(
+{
+    var source = WhiteNoise.ar(0.05);
+    var chain = FFT(LocalBuf(2048), source);
+    chain = PV_HPecartType(chain, 1);
+    IFFT(chain) ! 2
+}.play;
+)
+::
